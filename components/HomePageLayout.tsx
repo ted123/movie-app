@@ -1,14 +1,14 @@
 import * as React from 'react'
 import Head from 'next/head'
-import {createGlobalStyle} from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Open Sans", sans-serif;
-    background: #f3f7fe;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 25px 0;
+  }
+
+  h5 {
+    font-weight: bold;
   }
   .loading {
     @keyframes placeHolderShimmer{
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
           background-position: -468px 0
       }
       100%{
-          background-position: 468px 0
+          background-position: 468px 10
       }
     }
     animation-duration: 1.25s;
@@ -35,11 +35,18 @@ type Props = {
   title?: string
 }
 
+const HomeContainer = styled.div`
+	max-width: 1140px;
+  margin: auto;
+  background: #f3f7fe;
+  padding: 25px;
+`
+
 const HomePageLayout: React.FunctionComponent<Props> = ({
   children,
   title = 'This is the default title',
 }) => (
-  <div>
+  <HomeContainer>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -48,7 +55,7 @@ const HomePageLayout: React.FunctionComponent<Props> = ({
     </Head>
     <GlobalStyle/>
       {children}
-  </div>
+  </HomeContainer>
 )
 
 export default HomePageLayout

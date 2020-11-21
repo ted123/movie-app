@@ -11,7 +11,7 @@ type Props = {
 
 const SButton = styled.div`
     cursor: pointer;
-    font-size: 25px;
+    font-size: 24px;
 `
   
 const StarButton: React.FunctionComponent<Props> = ({active}) => {
