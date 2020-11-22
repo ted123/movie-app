@@ -22,7 +22,7 @@ type Props = {
 
 const Home:NextPage<Props> = ({movie, related}) => {
 	const [mov, setMov] = useState<Movie>({});
-	const [relatedMov, setRelatedMov] = useState<Movie[]>([{}, {}, {}, {}, {}]);
+	const [relatedMov, setRelatedMov] = useState<Movie[]>([{}, {}, {}, {}, {}, {}, {}, {}]); // 8 empty objects necessary to create skeleton cards
 
 	useEffect(() => {
 		// for demo purpose; delay display of data to show loading state 
@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	const relatedRes = await fetch(`https://api.themoviedb.org/3/movie/399579/similar?api_key=${TMDB_APP_KEY}&language=en-US&page=1`);
 	const movie = await movieRes.json();
 	const relatedMovies = await relatedRes.json();
-	const related = relatedMovies.results.splice(0,5);
+	const related = relatedMovies.results.splice(0,8);
 	return {
 	  props: { movie, related },
 	}

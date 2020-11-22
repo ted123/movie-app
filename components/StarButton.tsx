@@ -33,7 +33,7 @@ const StarButton: React.FunctionComponent<Props> = ({movieId}) => {
 
     const handleClick = () => {
         setLike(!like);
-        localStorage.setItem("like", "true");
+        like ? localStorage.removeItem("like") : localStorage.setItem("like", "true");
     }
 
     const inactive = () => (
