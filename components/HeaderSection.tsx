@@ -1,14 +1,15 @@
 import * as React from 'react'
 import RoundedImage from './RoundedImage'
-import HeaderTitle from './HeaderTitle'
-import CenterCol from './CenterCol';
 import StarButton from './StarButton';
 import styled from 'styled-components';
 
 import {Container, Row, Col, Button } from 'react-bootstrap'
+import { Movie } from '../interfaces';
+import Skeleton from 'react-loading-skeleton'
+import { IMG_BASE_URL } from '../config'
 
 type Props = {
-  title?: string
+  data?: Movie
 }
 
 const HeaderButton = styled(Button)`
@@ -17,32 +18,31 @@ const HeaderButton = styled(Button)`
 	margin-bottom: 5px;
 `
 
-const ButtonCol = styled(Col)`
-
+const HBtnSkel = styled(Skeleton)`
+	line-height: 1;
+	margin-bottom: 5px;
 `
 
 const HBtnRow = styled(Row)`
 	padding: 10px 0;
 
-	${ButtonCol}:last-child > button {  
+	div:last-child > button, ${HBtnSkel}:last-child {  
 		margin-bottom: 0;
 	}
 
 	
 	@media only screen and (max-width: 766px) {
-		${ButtonCol}:first-child {
+		div:first-child, ${HBtnSkel}:first-child {
 			padding-right: 2.5px;
 		}
-		${ButtonCol}:nth-child(2) {
+		div:nth-child(2), div:last-child, ${HBtnSkel}:nth-child(2) {
 			padding:0 2.5px;
-		}
-		${ButtonCol}:last-child {
-			padding: 0 2.5px;
 		}
 	}
 `
 
 const HContainer = styled(Container)`
+	line-height: 1;
 	padding: 0;
 `
 
@@ -57,29 +57,34 @@ const TitleGrp = styled(Col)`
 	}
 `
 
-const HeaderSection: React.FunctionComponent<Props> = () => (
+const HeaderTitle = styled.span`
+  font-size:24px;
+  font-weight: 600;
+` 
+
+const HeaderSection: React.FunctionComponent<Props> = ({data}) => (
 	<HContainer fluid>
 		<Row>
 			<TitleGrp xs={12} sm={12} md={9} lg={10}>
 				<div>
-					<RoundedImage src="http://image.tmdb.org/t/p/w185/8RKBHHRqOMOLh5qW3sS6TSFTd8h.jpg" />
+					{ data.backdrop_path ? <RoundedImage src={`${IMG_BASE_URL}${data.backdrop_path}`} /> : <Skeleton circle height={85} width={90}></Skeleton> }
 				</div>
 				<div>
-					<HeaderTitle>Mehehehe</HeaderTitle>
+					<HeaderTitle>{ data.original_title ? data.original_title : <Skeleton height={24} width={200} /> }</HeaderTitle>
 				</div>
-				<StarButton/>
+				<StarButton key={data.id} movieId={data.id}/>
 			</TitleGrp>
 			<Col>
 				<HBtnRow>
-					<ButtonCol xs={4} sm={4} md={12} lg={12}>
-						<HeaderButton variant="outline-primary" block>Play Video</HeaderButton>
-					</ButtonCol>
-					<ButtonCol xs={4} sm={4} md={12} lg={12}>
-						<HeaderButton variant="outline-primary" block>Watch Later</HeaderButton>
-					</ButtonCol>
-					<ButtonCol xs={4} sm={4} md={12} lg={12}>
-						<HeaderButton variant="outline-primary" block>Share</HeaderButton>
-					</ButtonCol>
+					<Col xs={4} sm={4} md={12} lg={12}>
+						{ data.id ? <HeaderButton variant="outline-primary" block>Play Video</HeaderButton> : <HBtnSkel height={31}/>}	
+					</Col>
+					<Col xs={4} sm={4} md={12} lg={12}>
+						{ data.id ? <HeaderButton variant="outline-primary" block>Watch Later</HeaderButton> : <HBtnSkel height={31}/>}
+					</Col>
+					<Col xs={4} sm={4} md={12} lg={12}>
+						{ data.id ? <HeaderButton variant="outline-primary" block>Share</HeaderButton> : <HBtnSkel height={31}/>}
+					</Col>
 				</HBtnRow>
 			</Col>
 		</Row>
