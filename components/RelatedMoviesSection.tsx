@@ -5,10 +5,9 @@ import { Movie } from "../interfaces"
 import Skeleton from "react-loading-skeleton"
 
 const RVCol = styled(Col)`
-	padding: 0 7.5px 20px 7.5px;
-	@media (min-width: 992px) {
-		flex: 1;
-	}
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
 `
 
 const CenterCol = styled(Col)`
@@ -26,35 +25,35 @@ const RMSContainer = styled.div`
 `
 
 const RMSRow = styled(Row)`
-	padding: 0 7px;
+	padding: 0 15px 20px 15px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	align-items: center;
+	grid-gap: 15px;
+	grid-template-rows: repeat(1, 1fr);
+	grid-auto-rows: 0;
+	overflow-y: hidden;
+
+	@media only screen and (max-width: 1109px) {
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	@media only screen and (max-width: 464px) {
+		grid-template-rows: repeat(5, 1fr);
+	}
 `
 
 type Props = {
 	data: Movie[]
 }
 
-
 const RelatedMoviesSection: React.FunctionComponent<Props> = ({data}) => {
-	// method for showing/hiding extra content depending on screensize
-	const determineClass = (index) => {
-		let className = "";
-		if (index > 4) {
-			className = `${className} d-lg-none`
-		}
-	
-		if (index > 5) {
-			className = `${className} d-sm-none d-md-block`
-		}
-	
-		return className;
-	}
-
 	return (
 		<RMSContainer>
 			<h5>{data[0].original_title ? "Related Videos" : <Skeleton height={25} width={110}></Skeleton>}</h5>
 			<RMSRow>
 				{data.map((item, index) => (
-					<RVCol key={index} xs={6} sm={4} md={3} className={determineClass(index)}>
+					<RVCol key={index}>
 						<MovieCard data={item}></MovieCard>
 					</RVCol>
 				))} 

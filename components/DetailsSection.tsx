@@ -33,7 +33,7 @@ const DetailsSection: React.FunctionComponent<Props> = ({data}) => (
 				{data.id ? "Synopsis" : <Skeleton width={80}></Skeleton>}
 			</h5>
 			<p>
-				{data.id ? data.overview : <Skeleton count={5}></Skeleton>}
+				{data.id ? data.overview : <Skeleton count={13}></Skeleton>}
 			</p>
 		</Col>
 		<PosterCol xs={{span:12, order:1}} sm={{span:12, order:1}} md={{span:3, order:2}}>

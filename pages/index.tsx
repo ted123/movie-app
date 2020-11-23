@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 import { Movie } from '../interfaces'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import { TMDB_APP_KEY } from "../config"
+import { randomInteger } from '../utils'
 
 const PageDivider = styled.hr`
 	border-width: 2px;
@@ -50,7 +51,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	const relatedRes = await fetch(`https://api.themoviedb.org/3/movie/399579/similar?api_key=${TMDB_APP_KEY}&language=en-US&page=1`);
 	const movie = await movieRes.json();
 	const relatedMovies = await relatedRes.json();
-	const related = relatedMovies.results.splice(0,8);
+	const related:Movie[] = relatedMovies.results.splice(0,8);
+	// randomize error image for demo purposes
+	related[randomInteger(0, 3)].poster_path = "error_path";
 	return {
 	  props: { movie, related },
 	}

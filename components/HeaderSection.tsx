@@ -12,7 +12,7 @@ type Props = {
 }
 
 const HeaderButton = styled(Button)`
-	font-weight: 600;
+	font-weight: bold;
 	font-size: 11px;
 	margin-bottom: 5px;
 `
