@@ -30,7 +30,7 @@ const MovieImg:React.FunctionComponent<Props> = ({src}) => {
 
 	return (
 		<React.Fragment>
-			<img style={loaded ? done: loading} src={`${IMG_POSTER_URL}${src}`} onLoad={doneCB}></img>
+			<img style={loaded ? done: loading} src={src ? `${IMG_POSTER_URL}${src}` : null} onLoad={doneCB}></img>
 			{loaded ? null : <TmpImg/> }
 		</React.Fragment>
 	)

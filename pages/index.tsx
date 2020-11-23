@@ -33,7 +33,7 @@ const Home:NextPage<Props> = ({movie, related}) => {
 	}, [])
 
 	return (
-		<HomePageLayout>
+		<HomePageLayout title={movie.original_title}>
 			<SkeletonTheme color="rgb(216, 228, 252)">
 				<HeaderSection data={mov}></HeaderSection>
 				<PageDivider/>

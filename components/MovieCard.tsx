@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap"
 import styled from "styled-components"
 import { Movie } from "../interfaces"
-import { IMG_POSTER_URL } from "../config"
 import MovieImg from "./MovieImg"
 import Skeleton from "react-loading-skeleton"
 
