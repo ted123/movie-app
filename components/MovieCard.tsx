@@ -28,7 +28,6 @@ const CardContainer = styled.div`
 	height: 100%;
 	line-height: 1;
 	background-color: rgb(216, 228, 252);
-	border: 1px solid rgba(0,0,0,.125);
 	border-radius: calc(.25rem - 1px);
 	position: relative;
 	img {
