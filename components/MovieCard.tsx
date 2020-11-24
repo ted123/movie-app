@@ -10,6 +10,7 @@ const CardBody = styled.div`
 	position: absolute;
 	bottom: 0;
 	height: 100px;
+	background-color: white;
 `
 const Title = styled.div`
 	font-weight: 500;
@@ -26,7 +27,7 @@ const CardBtn = styled(Button)`
 const CardContainer = styled.div`
 	height: 100%;
 	line-height: 1;
-	background-color: white;
+	background-color: rgb(216, 228, 252);
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: calc(.25rem - 1px);
 	position: relative;

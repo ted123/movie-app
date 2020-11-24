@@ -24,7 +24,7 @@ const loading = {
 
 const TmpImg = styled(Skeleton)`
 	height: 750px;
-	max-height: 275px;
+	max-height: 305px;
 	border-radius: 0;
 `
 
