@@ -51,9 +51,11 @@ const MovieImg:React.FunctionComponent<Props> = ({src, title}) => {
 
 	return (
 		<React.Fragment>
-			{hasErr ? <ErrImg><FontAwesomeIcon style={{ color: "#DFEBFC" }} icon="video" color="white" size="4x"/></ErrImg> : <div>
-				<img alt={`${title} Poster`}style={loaded ? done: loading} src={src ? `${IMG_POSTER_URL}${src}` : null} onLoad={doneCB} onError={errorCB} />
-			</div>}
+			{hasErr ? <ErrImg>
+					<FontAwesomeIcon style={{ color: "#DFEBFC" }} icon="video" color="white" size="4x"/>
+				</ErrImg> : 
+				<img alt={`${title} Poster`} style={loaded ? done: loading} src={src ? `${IMG_POSTER_URL}${src}` : null} onLoad={doneCB} onError={errorCB} />
+			}
 			
 			{loaded ? null : <TmpImg/> }
 		</React.Fragment>
