@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import Skeleton from "react-loading-skeleton"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from "@fortawesome/fontawesome-svg-core"
 import { faVideo } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faVideo);
@@ -50,7 +50,7 @@ const MovieImg:React.FunctionComponent<Props> = ({src}) => {
 
 	return (
 		<React.Fragment>
-			{hasErr ? <ErrImg><FontAwesomeIcon icon="video" color="white" size="4x"/></ErrImg> : <div>
+			{hasErr ? <ErrImg><FontAwesomeIcon style={{ color: "#DFEBFC" }} icon="video" color="white" size="4x"/></ErrImg> : <div>
 				<img style={loaded ? done: loading} src={src ? `${IMG_POSTER_URL}${src}` : null} onLoad={doneCB} onError={errorCB} />
 			</div>}
 			

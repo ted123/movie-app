@@ -1,10 +1,10 @@
-import { Container, Col, Button, FormControl, Row } from "react-bootstrap"
+import { Col, Button, FormControl, Row } from "react-bootstrap"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from "@fortawesome/fontawesome-svg-core"
 import { faLessThan } from '@fortawesome/free-solid-svg-icons'
 import Skeleton from 'react-loading-skeleton'
-import { Movie } from "../interfaces";
+import { Movie } from "../interfaces"
 
 library.add(faLessThan)
 
@@ -22,7 +22,7 @@ const SearchRow = styled(Row)`
 `
 
 type Props = {
-    data?: Movie
+    data: Movie
 }
 
 const Btn = () => (

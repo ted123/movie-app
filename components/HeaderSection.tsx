@@ -1,9 +1,9 @@
 import * as React from 'react'
-import StarButton from './StarButton';
-import styled from 'styled-components';
+import StarButton from './StarButton'
+import styled from 'styled-components'
 
 import {Container, Row, Col, Button } from 'react-bootstrap'
-import { Movie } from '../interfaces';
+import { Movie } from '../interfaces'
 import Skeleton from 'react-loading-skeleton'
 import { IMG_BASE_URL } from '../config'
 

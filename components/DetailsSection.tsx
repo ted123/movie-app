@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap"
 import styled from "styled-components"
-import { Movie } from '../interfaces';
+import { Movie } from '../interfaces'
 import Skeleton from 'react-loading-skeleton'
 import { IMG_POSTER_URL } from '../config'
 

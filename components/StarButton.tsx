@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import Skeleton from 'react-loading-skeleton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from "styled-components"
+import Skeleton from "react-loading-skeleton"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStar, faPlusCircle, faCircle } from '@fortawesome/free-solid-svg-icons'
-import { useState, useEffect } from 'react';
+import { faStar, faPlusCircle, faCircle } from "@fortawesome/free-solid-svg-icons"
+import { useState, useEffect } from "react";
 
 library.add(faStar, faPlusCircle, faCircle)
 
@@ -28,12 +28,12 @@ const StarButton: React.FunctionComponent<Props> = ({movieId}) => {
 	const [like, setLike] = useState<Boolean>(false);
 
 	useEffect(() => {
-		setLike(Boolean(localStorage.getItem("like")));
+		setLike(Boolean(localStorage.getItem(`like-${movieId}`)));
 	}, [])
 
 	const handleClick = () => {
 		setLike(!like);
-		like ? localStorage.removeItem("like") : localStorage.setItem("like", "true");
+		like ? localStorage.removeItem(`like-${movieId}`) : localStorage.setItem(`like-${movieId}`, "true");
 	}
 
 	const inactive = () => (
