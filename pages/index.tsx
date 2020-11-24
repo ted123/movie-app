@@ -36,11 +36,13 @@ const Home:NextPage<Props> = ({movie, related}) => {
 	return (
 		<HomePageLayout title={movie.original_title}>
 			<SkeletonTheme color="rgb(216, 228, 252)">
-				<HeaderSection data={mov}></HeaderSection>
+				<header><HeaderSection data={mov}></HeaderSection></header>
 				<PageDivider/>
-				<SearchSection data={mov}></SearchSection>
-				<DetailsSection data={mov}></DetailsSection>
-				<RelatedMoviesSection data={relatedMov}></RelatedMoviesSection>
+				<main>
+					<SearchSection data={mov}></SearchSection>
+					<DetailsSection data={mov}></DetailsSection>
+					<RelatedMoviesSection data={relatedMov}></RelatedMoviesSection>
+				</main>
 			</SkeletonTheme>
 		</HomePageLayout>
 	)

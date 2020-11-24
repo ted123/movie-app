@@ -37,14 +37,14 @@ const StarButton: React.FunctionComponent<Props> = ({movieId}) => {
 	}
 
 	const inactive = () => (
-		<SButton className="fa-layers fa-fw" onClick={handleClick}>
+		<SButton className="fa-layers fa-fw" onClick={handleClick} aria-label="Like this movie">
 			<FontAwesomeIcon icon="circle" color="#8EB5FC" mask="star" transform="shrink-6 down-5 right-6"/>
 			<FontAwesomeIcon icon="plus-circle" color="#8EB5FC" transform="shrink-8 down-5 right-6" />
 		</SButton>
 	);
 	
 	const active = () => (
-		<SButton className="fa-layers fa-fw" onClick={handleClick}>
+		<SButton className="fa-layers fa-fw" onClick={handleClick} aria-label="Unlike this movie">
 			<FontAwesomeIcon icon="star" color="yellow"/>
 		</SButton>
 	);

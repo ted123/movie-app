@@ -47,7 +47,7 @@ type Props = {
 const MovieCard: React.FunctionComponent<Props> = ({data}) => {
 	return (
 		<CardContainer>
-			<MovieImg src={data.poster_path}></MovieImg>
+			<MovieImg src={data.poster_path} title={data.title}></MovieImg>
 			<CardBody>
 				<Title>{data.title ? data.title : <Skeleton height={25}></Skeleton>}</Title>
 				<CardBtnDiv>

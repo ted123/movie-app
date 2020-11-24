@@ -74,9 +74,10 @@ const TitleGrp = styled(Col)`
 	}
 `
 
-const HeaderTitle = styled.span`
+const HeaderTitle = styled.h1`
   font-size:24px;
   font-weight: 600;
+  margin: 0;
 `
 
 const RoundedImage = styled.img`
@@ -91,7 +92,7 @@ const HeaderSection: React.FunctionComponent<Props> = ({data}) => (
 		<Row>
 			<TitleGrp xs={12} sm={12} md={9} lg={10}>
 				<div>
-					{ data.backdrop_path ? <RoundedImage src={`${IMG_BASE_URL}${data.backdrop_path}`} /> : <Skeleton circle height={85} width={90}></Skeleton> }
+					{ data.backdrop_path ? <RoundedImage src={`${IMG_BASE_URL}${data.backdrop_path}`} alt={`${data.title} Avatar`}/> : <Skeleton circle height={85} width={90}></Skeleton> }
 				</div>
 				<div>
 					<HeaderTitle>{ data.original_title ? data.original_title : <Skeleton height={24} width={120} /> }</HeaderTitle>

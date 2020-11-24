@@ -10,7 +10,8 @@ import { faVideo } from '@fortawesome/free-solid-svg-icons'
 library.add(faVideo);
 
 type Props = {
-	src: String
+	src: String,
+	title: String
 }
 
 const done = {
@@ -35,7 +36,7 @@ const ErrImg = styled.div`
 	align-items: center;
 `
 
-const MovieImg:React.FunctionComponent<Props> = ({src}) => {
+const MovieImg:React.FunctionComponent<Props> = ({src, title}) => {
 	const [loaded, setLoaded] = useState<Boolean>(false);
 	const [hasErr, setHasErr] = useState<Boolean>(false);
 
@@ -51,7 +52,7 @@ const MovieImg:React.FunctionComponent<Props> = ({src}) => {
 	return (
 		<React.Fragment>
 			{hasErr ? <ErrImg><FontAwesomeIcon style={{ color: "#DFEBFC" }} icon="video" color="white" size="4x"/></ErrImg> : <div>
-				<img style={loaded ? done: loading} src={src ? `${IMG_POSTER_URL}${src}` : null} onLoad={doneCB} onError={errorCB} />
+				<img alt={`${title} Poster`}style={loaded ? done: loading} src={src ? `${IMG_POSTER_URL}${src}` : null} onLoad={doneCB} onError={errorCB} />
 			</div>}
 			
 			{loaded ? null : <TmpImg/> }

@@ -20,6 +20,7 @@ const HomePageLayout: React.FunctionComponent<Props> = ({
 		<Head>
 			<title>{title}</title>
 			<meta charSet="utf-8" />
+			<meta httpEquiv="content-language" content="en-us"></meta>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
 		</Head>

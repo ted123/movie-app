@@ -29,15 +29,15 @@ type Props = {
 const DetailsSection: React.FunctionComponent<Props> = ({data}) => (
 	<Row>
 		<Col xs={{span:12, order:2}} sm={{span:12, order:2}} md={{span:9, order:1}}>
-			<h5>
+			<h2>
 				{data.id ? "Synopsis" : <Skeleton width={80}></Skeleton>}
-			</h5>
+			</h2>
 			<p>
 				{data.id ? data.overview : <Skeleton count={13}></Skeleton>}
 			</p>
 		</Col>
 		<PosterCol xs={{span:12, order:1}} sm={{span:12, order:1}} md={{span:3, order:2}}>
-			{data.id ? <PosterImage src={`${IMG_POSTER_URL}${data.poster_path}`}></PosterImage> : <PosterSkel></PosterSkel>}
+			{data.id ? <PosterImage src={`${IMG_POSTER_URL}${data.poster_path}`} alt={`${data.title} Poster`}></PosterImage> : <PosterSkel></PosterSkel>}
 		</PosterCol>
 	</Row>
 )

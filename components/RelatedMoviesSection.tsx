@@ -50,7 +50,7 @@ type Props = {
 const RelatedMoviesSection: React.FunctionComponent<Props> = ({data}) => {
 	return (
 		<RMSContainer>
-			<h5>{data[0].original_title ? "Related Videos" : <Skeleton height={25} width={110}></Skeleton>}</h5>
+			<h2>{data[0].original_title ? "Related Videos" : <Skeleton height={25} width={110}></Skeleton>}</h2>
 			<RMSRow>
 				{data.map((item, index) => (
 					<RVCol key={index}>
